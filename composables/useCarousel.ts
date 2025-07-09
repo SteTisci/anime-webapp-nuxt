@@ -1,17 +1,17 @@
-export function useCarousel() {
+export function useCarousel(length: number) {
   const current = ref(0)
   const isAnimating = ref(false)
   let timer: ReturnType<typeof setInterval>
 
   const prev = () => {
     waitForAnimation(() => {
-      current.value = current.value > 0 ? current.value - 1 : 28
+      current.value = (current.value + length - 1) % length
     })
   }
 
   const next = () => {
     waitForAnimation(() => {
-      current.value = current.value < 28 ? current.value + 1 : 0
+      current.value = (current.value + length + 1) % length
     })
   }
 

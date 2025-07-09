@@ -22,12 +22,14 @@ const emit = defineEmits(['update-current'])
 <style scoped>
 .dots-container {
   position: absolute;
-  top: 96%;
+  top: 92%;
   left: 50%;
   display: flex;
+  align-items: center;
   gap: 10px;
   z-index: 1;
   transform: translateX(-50%);
+  height: 35px;
 }
 
 span {
@@ -35,7 +37,7 @@ span {
   height: 5px;
   background-color: #ffffff7e;
   opacity: 0.8;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   box-shadow:
     rgba(0, 0, 0, 0.09) 0px 2px 1px,

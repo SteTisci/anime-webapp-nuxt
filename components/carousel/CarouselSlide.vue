@@ -10,7 +10,7 @@ const props = defineProps<Props>()
 
 <template>
   <div class="carousel-slide">
-    <img :id="props.id" :src="props.banner" :alt="props.title" />
+    <img :id="props.id" :src="props.banner" :alt="props.title" draggable="false" />
     <h1>{{ props.title }}</h1>
   </div>
 </template>
@@ -33,14 +33,17 @@ img {
 
 h1 {
   position: absolute;
-  top: 80%;
+  top: 82%;
   left: 50%;
-  transform: translateX(-50%);
+  width: 1100px;
+  max-height: 50px;
+  overflow: hidden;
   color: white;
-  font-family: jersey;
+  text-align: center;
+  line-height: normal;
   font-size: 2.4rem;
   text-shadow: 3px 3px 5px black;
+  transform: translateX(-50%);
   cursor: pointer;
-  text-align: center;
 }
 </style>

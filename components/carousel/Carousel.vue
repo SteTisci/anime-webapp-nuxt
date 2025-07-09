@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const slidesRaw = await $fetch('/api/anime/slides')
+const { data } = await useFetch('/api/anime/slides')
 
-const slides = computed(() => slidesRaw.data.filter(slide => slide.bannerImage))
+const slides = computed(() => data.value?.data.filter(slide => slide.bannerImage) || [])
 
-const { prev, next, current, start, stop } = useCarousel()
+const { prev, next, current, start, stop } = useCarousel(slides.value.length || 0)
 </script>
 
 <template>
@@ -11,14 +11,17 @@ const { prev, next, current, start, stop } = useCarousel()
     <CarouselButton class="prev" src="/prevIcon.svg" alt="previous slide icon" @click.prevent="prev" />
     <CarouselButton class="next" src="/nextIcon.svg" alt="next slide icon" @click.prevent="next" />
 
-    <Transition name="fade" mode="in-out">
-      <CarouselSlide
-        :id="slides[current]._id"
-        :key="slides[current]._id"
-        :banner="slides[current].bannerImage!"
-        :title="slides[current].title"
-      />
-    </Transition>
+    <NuxtLink v-if="slides.length > 0" :to="`anime/${slides[current]._id}`">
+      <Transition name="fade" mode="in-out">
+        <CarouselSlide
+          :id="slides[current]._id"
+          :key="slides[current]._id"
+          :banner="slides[current].bannerImage!"
+          :title="slides[current].title"
+        />
+      </Transition>
+    </NuxtLink>
+
     <CarouselDots :length="slides.length" :current="current" @update-current="index => (current = index)" />
   </div>
 </template>
@@ -30,6 +33,8 @@ const { prev, next, current, start, stop } = useCarousel()
   height: 450px;
   margin-top: 80px;
   overflow: hidden;
+  user-select: none;
+  opacity: 0.9;
 }
 
 .prev {

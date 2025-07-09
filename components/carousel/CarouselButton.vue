@@ -16,11 +16,24 @@ const props = defineProps<Props>()
 <style scoped>
 .container {
   position: absolute;
-  width: 200px;
+  width: 190px;
   height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.container img {
+  opacity: 0.6;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.container:hover img {
+  transform: scale(1.05);
+  opacity: 1;
 }
 </style>
