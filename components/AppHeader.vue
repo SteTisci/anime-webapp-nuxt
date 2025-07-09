@@ -34,7 +34,7 @@ header {
 }
 
 .container {
-  width: 1000px;
+  width: 1190px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,7 +53,6 @@ a {
 }
 
 .logo h1 {
-  font-family: jersey;
   font-size: 2.5rem;
 }
 
@@ -69,7 +68,6 @@ a {
 .nav-links a {
   color: #ffffff;
   font-weight: 500;
-  font-family: jersey;
   font-size: 1.3rem;
   line-height: normal;
 }

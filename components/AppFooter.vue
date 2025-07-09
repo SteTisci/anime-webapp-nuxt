@@ -29,12 +29,11 @@ footer {
 }
 
 .container {
-  width: 1000px;
+  width: 1190px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  font-family: jersey;
   font-size: 1.2rem;
   padding: 20px 0 0;
 }
