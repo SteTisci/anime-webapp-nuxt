@@ -34,4 +34,6 @@ export interface Query {
   type?: string
   lang?: string
   releaseYear?: number
+  status?: string
+  limit?: number
 }
