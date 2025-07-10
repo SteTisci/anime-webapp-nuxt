@@ -9,8 +9,8 @@
         <ul>
           <li><NuxtLink active-class="active" to="/">Home</NuxtLink></li>
           <li><NuxtLink active-class="active" to="/anime">Anime</NuxtLink></li>
-          <li><NuxtLink active-class="active" to="/popular">Popolari</NuxtLink></li>
-          <li><NuxtLink active-class="active" to="/archive">Archivio</NuxtLink></li>
+          <li><NuxtLink active-class="active" to="/popolari">Popolari</NuxtLink></li>
+          <li><NuxtLink active-class="active" to="/archivio">Archivio</NuxtLink></li>
         </ul>
       </nav>
       <div class="search-bar">
