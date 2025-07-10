@@ -1,10 +1,7 @@
 <script setup lang="ts">
-interface Props {
-  src: string
-  alt: string
-}
+import type { CarouselButtonImage } from '~/types'
 
-const props = defineProps<Props>()
+const props = defineProps<CarouselButtonImage>()
 </script>
 
 <template>

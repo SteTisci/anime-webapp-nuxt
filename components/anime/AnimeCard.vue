@@ -1,13 +1,7 @@
 <script setup lang="ts">
-interface Anime {
-  id: string
-  title: string
-  thumbnail: string
-  lang: string
-  type: string
-}
+import type { AnimeCard } from '~/types'
 
-const props = defineProps<Anime>()
+const props = defineProps<AnimeCard>()
 </script>
 
 <template>

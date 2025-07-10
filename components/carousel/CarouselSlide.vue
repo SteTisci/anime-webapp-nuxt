@@ -1,11 +1,7 @@
 <script setup lang="ts">
-interface Props {
-  id: string
-  title: string
-  banner: string
-}
+import type { CarouselSlide } from '~/types'
 
-const props = defineProps<Props>()
+const props = defineProps<CarouselSlide>()
 </script>
 
 <template>

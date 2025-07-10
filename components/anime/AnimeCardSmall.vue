@@ -1,16 +1,7 @@
 <script setup lang="ts">
-interface Props {
-  id: string
-  title: string
-  type: string
-  thumbnail: string
-  releaseYear: number
-  tags: string[]
-  episodes: number
-  duration: number
-}
+import type { AnimeCard } from '~/types'
 
-const props = defineProps<Props>()
+const props = defineProps<AnimeCard>()
 </script>
 
 <template>
@@ -21,7 +12,7 @@ const props = defineProps<Props>()
         <div class="info">
           <h4>{{ props.title }}</h4>
           <p>{{ props.type }} - {{ props.releaseYear }}</p>
-          <p class="tags">{{ props.tags.slice(0, 5).toString().replace(/,/g, ', ') }}</p>
+          <p class="tags">{{ props.tags!.slice(0, 5).toString().replace(/,/g, ', ') }}</p>
           <p>{{ props.duration }} min / {{ props.episodes }} episodi</p>
         </div>
       </div>
@@ -30,6 +21,15 @@ const props = defineProps<Props>()
 </template>
 
 <style scoped>
+.card {
+  border-radius: 5px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.card:hover {
+  background-color: rgba(107, 107, 107, 0.582);
+}
+
 .card a {
   text-decoration: none;
 }
@@ -53,7 +53,7 @@ const props = defineProps<Props>()
 }
 
 .info h4 {
-  margin: 0 0 10px;
+  margin: 5px 0 10px;
   max-height: 30px;
   overflow: hidden;
   color: white;
