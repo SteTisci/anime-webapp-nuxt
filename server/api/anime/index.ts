@@ -1,4 +1,4 @@
-import type { Query } from '~/server/types'
+import type { Query } from '~/types'
 
 export default defineEventHandler(async event => {
   const rawQuery = getQuery(event)

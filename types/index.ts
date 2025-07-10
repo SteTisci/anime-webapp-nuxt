@@ -1,5 +1,7 @@
 import type { Types } from 'mongoose'
 
+// SERVER TYPES
+
 export interface IAnime {
   _id: Types.ObjectId
   title: string
@@ -36,4 +38,40 @@ export interface Query {
   releaseYear?: number
   status?: string
   limit?: number
+}
+
+// CLIENT TYPES
+
+export interface CarouselSlide {
+  id: string
+  title: string
+  banner: string
+}
+
+export interface CarouselButtonImage {
+  src: string
+  alt: string
+}
+
+export interface CarouselDots {
+  length: number
+  current: number
+}
+
+export interface AnimeCard {
+  id: string
+  title: string
+  thumbnail: string
+  type: string
+  lang?: string
+  releaseYear?: number
+  tags?: string[]
+  episodes?: number
+  duration?: number
+}
+
+export interface AnimeData {
+  name: string
+  card: 'normal' | 'small'
+  data: any
 }
