@@ -1,3 +1,5 @@
+import { mapIEpisodeToEpisode } from '~/server/utils/mapper'
+
 export default defineEventHandler(async event => {
   const anime = await AnimeSchema.findById(event.context.params?.id).select('paramUri episodes')
 
@@ -7,5 +9,5 @@ export default defineEventHandler(async event => {
 
   await EpisodeSchema.updateOne({ _id: episode?._id }, { $set: { videoUrl: videoUrl } })
 
-  return { success: true, data: episode }
+  return { success: true, data: episode ? mapIEpisodeToEpisode(episode) : null }
 })

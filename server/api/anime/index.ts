@@ -1,4 +1,5 @@
 import type { Query } from '~/types'
+import { mapIAnimeArrayToAnimeArray } from '~/server/utils/mapper'
 
 export default defineEventHandler(async event => {
   const rawQuery = getQuery(event)
@@ -11,7 +12,7 @@ export default defineEventHandler(async event => {
     lang: rawQuery.lang ? String(rawQuery.lang) : undefined,
     releaseYear: rawQuery.releaseYear ? Number(rawQuery.releaseYear) : undefined,
     status: rawQuery.status ? String(rawQuery.status) : undefined,
-    limit: rawQuery.limit ? Number(rawQuery.limit) : 0,
+    limit: rawQuery.limit ? Number(rawQuery.limit) : 30,
   }
 
   const mongoQuery: any = {}
@@ -26,12 +27,12 @@ export default defineEventHandler(async event => {
   const animeData = await AnimeSchema.find(mongoQuery)
     .select({ episodes: 0 })
     .sort({ rating: -1 })
-    .skip((query.page! - 1) * 30)
+    .skip((query.page! - 1) * query.limit!)
     .limit(query.limit!)
     .lean()
 
   return {
     success: true,
-    data: animeData,
+    data: mapIAnimeArrayToAnimeArray(animeData),
   }
 })

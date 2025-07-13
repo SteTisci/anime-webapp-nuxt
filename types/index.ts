@@ -42,36 +42,29 @@ export interface Query {
 
 // CLIENT TYPES
 
-export interface CarouselSlide {
+export interface Anime {
   id: string
-  title: string
-  banner: string
-}
-
-export interface CarouselButtonImage {
-  src: string
-  alt: string
-}
-
-export interface CarouselDots {
-  length: number
-  current: number
-}
-
-export interface AnimeCard {
-  id: string
-  title: string
-  thumbnail: string
-  type: string
-  lang?: string
+  title?: string
+  paramUri?: string
+  thumbnail?: string
+  bannerImage?: string
+  description?: string
+  type?: string
+  author?: string
   releaseYear?: number
-  tags?: string[]
-  episodes?: number
+  rating?: number
+  status?: 'FINISHED' | 'RELEASING' | 'NOT_YET_RELEASED' | 'CANCELLED' | 'HIATUS'
+  numberOfEpisodes?: number
   duration?: number
+  lang?: string
+  tags?: string[]
+  aniListId?: number
+  episodes?: (Types.ObjectId | IEpisode)[]
 }
 
-export interface AnimeData {
-  name: string
-  card: 'normal' | 'small'
-  data: any
+export interface Episode {
+  id: string
+  episodeNum: number
+  paramUri: string
+  videoUrl: string
 }
