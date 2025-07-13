@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { AnimeCard } from '~/types'
+import type { Anime } from '~/types'
 
-const props = defineProps<AnimeCard>()
+const props = defineProps<Anime>()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const props = defineProps<AnimeCard>()
           <h4>{{ props.title }}</h4>
           <p>{{ props.type }} - {{ props.releaseYear }}</p>
           <p class="tags">{{ props.tags!.slice(0, 5).toString().replace(/,/g, ', ') }}</p>
-          <p>{{ props.duration }} min / {{ props.episodes }} episodi</p>
+          <p>{{ props.duration }} min / {{ props.numberOfEpisodes }} episodi</p>
         </div>
       </div>
     </NuxtLink>
@@ -36,7 +36,7 @@ const props = defineProps<AnimeCard>()
 
 .card-info {
   width: 300px;
-  height: 100px;
+  height: 103px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;

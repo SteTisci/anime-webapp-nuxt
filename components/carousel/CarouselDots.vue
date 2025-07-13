@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { CarouselDots } from '~/types'
-
-const props = defineProps<CarouselDots>()
+const props = defineProps<{ length: number; current: number }>()
 const emit = defineEmits(['update-current'])
 </script>
 

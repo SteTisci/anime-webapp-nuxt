@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { CarouselSlide } from '~/types'
-
-const props = defineProps<CarouselSlide>()
+const props = defineProps<{ id: string; title: string; banner: string }>()
 </script>
 
 <template>

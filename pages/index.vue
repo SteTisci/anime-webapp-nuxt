@@ -1,14 +1,27 @@
 <script setup lang="ts">
-const { data: popolari } = await useFetch('/api/anime?limit=30')
-const { data: recenti } = await useFetch('/api/anime?releaseYear=2025&limit=12')
+const { popolari, archivio, recenti, loading, error } = useAnimeData()
 </script>
 
 <template>
   <div class="content">
     <Carousel />
+
     <div class="content-bottom">
-      <AnimeCollection v-if="popolari?.success" name="popolari" card="normal" :data="popolari?.data" />
-      <AnimeCollection v-if="recenti?.success" name="recenti" card="small" :data="recenti?.data" />
+      <div class="content-bottom-left">
+        <AnimeCollection v-if="popolari?.success" name="popolari" card="normal" :data="popolari.data" />
+        <p v-else-if="loading.popolari">Caricamento popolari...</p>
+        <p v-else-if="error.popolari">Errore nel caricamento dei popolari.</p>
+
+        <AnimeCollection v-if="archivio?.success" name="archivio" card="normal" :data="archivio.data" />
+        <p v-else-if="loading.archivio">Caricamento archivio...</p>
+        <p v-else-if="error.archivio">Errore nel caricamento dell'archivio.</p>
+      </div>
+
+      <div class="content-bottom-right">
+        <AnimeCollection v-if="recenti?.success" name="recenti" card="small" :data="recenti.data" />
+        <p v-else-if="loading.recenti">Caricamento recenti...</p>
+        <p v-else-if="error.recenti">Errore nel caricamento dei recenti.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -23,5 +36,11 @@ const { data: recenti } = await useFetch('/api/anime?releaseYear=2025&limit=12')
   justify-content: center;
   align-items: center;
   margin: 40px 0;
+}
+
+.content-bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 </style>

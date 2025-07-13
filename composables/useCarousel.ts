@@ -36,7 +36,7 @@ export function useCarousel(length: number) {
 
     setTimeout(() => {
       isAnimating.value = false
-    }, 1200)
+    }, 1000)
   }
 
   onMounted(() => {

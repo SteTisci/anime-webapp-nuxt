@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { AnimeCard } from '~/types'
+import type { Anime } from '~/types'
 
-const props = defineProps<AnimeCard>()
+const props = defineProps<Anime>()
 </script>
 
 <template>
   <div class="card" :style="{ backgroundImage: `url(${props.thumbnail})` }">
-    <NuxtLink :to="`anime/${props.id}`">
+    <NuxtLink :to="`/anime/${props.id}`">
       <div class="info">
         <h3>{{ props.title }}</h3>
         <div class="b-info">
@@ -62,6 +62,8 @@ h3 {
   text-align: center;
   text-wrap: pretty;
   padding: 10px 5px;
+  line-height: 1.1;
+  font-size: 1.1rem;
 }
 
 .b-info {

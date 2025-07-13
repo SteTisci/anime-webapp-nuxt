@@ -11,11 +11,11 @@ const { prev, next, current, start, stop } = useCarousel(slides.value.length || 
     <CarouselButton class="prev" src="/prevIcon.svg" alt="previous slide icon" @click.prevent="prev" />
     <CarouselButton class="next" src="/nextIcon.svg" alt="next slide icon" @click.prevent="next" />
 
-    <NuxtLink v-if="slides.length > 0" :to="`anime/${slides[current]._id}`">
+    <NuxtLink v-if="slides.length > 0" :to="`/anime/${slides[current].id}`">
       <Transition name="fade" mode="in-out">
         <CarouselSlide
-          :id="slides[current]._id"
-          :key="slides[current]._id"
+          :id="slides[current].id"
+          :key="slides[current].id"
           :banner="slides[current].bannerImage!"
           :title="slides[current].title"
         />
@@ -51,7 +51,7 @@ const { prev, next, current, start, stop } = useCarousel(slides.value.length || 
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1.2s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 .fade-enter-from,
 .fade-leave-from {

@@ -13,10 +13,7 @@
           <li><NuxtLink active-class="active" to="/archivio">Archivio</NuxtLink></li>
         </ul>
       </nav>
-      <div class="search-bar">
-        <input id="search" type="text" autocomplete="off" placeholder="Cerca un anime..." />
-        <img src="/search.svg" alt="search glass" width="25px" height="25px" />
-      </div>
+      <AppHeaderSearchBar />
     </div>
   </header>
 </template>
@@ -75,26 +72,5 @@ a {
 .nav-links a.active,
 .nav-links a:hover {
   color: #c5c5c5;
-}
-
-.search-bar {
-  display: inherit;
-  align-items: center;
-  border: 1px solid #c5c5c5;
-  border-radius: 5px;
-  background-color: #202020;
-}
-
-.search-bar input {
-  outline: none;
-  border: none;
-  padding: 5px;
-  margin: 4px 0 4px 5px;
-  color: #ffffff;
-  background-color: transparent;
-}
-
-.search-bar img {
-  margin-right: 5px;
 }
 </style>
