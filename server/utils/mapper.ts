@@ -1,4 +1,5 @@
 import type { Anime, IAnime, IEpisode, Episode } from '~/types'
+import type { Types } from 'mongoose'
 
 export function mapIAnimeToAnime(anime: IAnime): Anime {
   return {
@@ -18,7 +19,12 @@ export function mapIAnimeToAnime(anime: IAnime): Anime {
     lang: anime.lang,
     tags: anime.tags,
     aniListId: anime.aniListId,
-    episodes: anime.episodes,
+    episodes: anime.episodes?.map(ep => {
+      if ('episodeNum' in ep && 'videoUrl' in ep) {
+        return mapIEpisodeToEpisode(ep as IEpisode)
+      }
+      return (ep as Types.ObjectId).toString()
+    }),
   }
 }
 

@@ -7,7 +7,10 @@ export default defineEventHandler(async event => {
 
   const videoUrl = await (await fetch(`${process.env.REQ_SLUG_VIDEO}${episode?.paramUri}`)).text()
 
-  await EpisodeSchema.updateOne({ _id: episode?._id }, { $set: { videoUrl: videoUrl } })
+  if (episode && episode._id) {
+    await EpisodeSchema.updateOne({ _id: episode._id }, { $set: { videoUrl } })
+    episode.videoUrl = videoUrl
+  }
 
   return { success: true, data: episode ? mapIEpisodeToEpisode(episode) : null }
 })

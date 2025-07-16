@@ -59,7 +59,7 @@ export interface Anime {
   lang?: string
   tags?: string[]
   aniListId?: number
-  episodes?: (Types.ObjectId | IEpisode)[]
+  episodes?: (string | Episode)[]
 }
 
 export interface Episode {
