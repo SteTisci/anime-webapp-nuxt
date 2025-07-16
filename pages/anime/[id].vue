@@ -8,7 +8,7 @@ const { data: anime } = await useFetch<{ success: boolean; data: Anime }>(`/api/
 
 <template>
   <div>
-    <AnimeInfo v-if="anime?.success" :data="anime.data" />
+    <AnimePage v-if="anime?.success" :data="anime.data" />
   </div>
 </template>
 

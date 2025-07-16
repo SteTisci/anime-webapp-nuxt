@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import type { Anime } from '~/types'
 
-const props = defineProps<Anime>()
+const props = defineProps<{ data: Anime }>()
 </script>
 
 <template>
   <div class="card">
-    <NuxtLink :to="`/anime/${props.id}`">
+    <NuxtLink :to="`/anime/${props.data.id}`">
       <div class="card-info">
-        <img :src="props.thumbnail" :alt="props.title" />
+        <img :src="props.data.thumbnail" :alt="props.data.title" />
         <div class="info">
-          <h4>{{ props.title }}</h4>
-          <p>{{ props.type }} - {{ props.releaseYear }}</p>
-          <p class="tags">{{ props.tags!.slice(0, 5).toString().replace(/,/g, ', ') }}</p>
-          <p>{{ props.duration }} min / {{ props.numberOfEpisodes }} episodi</p>
+          <h4>{{ props.data.title }}</h4>
+          <p>{{ props.data.type }} - {{ props.data.releaseYear }}</p>
+          <p class="tags">{{ props.data.tags!.slice(0, 5).toString().replace(/,/g, ', ') }}</p>
+          <p>{{ props.data.duration }} min / {{ props.data.numberOfEpisodes }} episodi</p>
         </div>
       </div>
     </NuxtLink>

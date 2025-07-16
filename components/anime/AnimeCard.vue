@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import type { Anime } from '~/types'
 
-const props = defineProps<Anime>()
+const props = defineProps<{ data: Anime }>()
 </script>
 
 <template>
-  <div class="card" :style="{ backgroundImage: `url(${props.thumbnail})` }">
-    <NuxtLink :to="`/anime/${props.id}`">
+  <div class="card" :style="{ backgroundImage: `url(${props.data.thumbnail})` }">
+    <NuxtLink :to="`/anime/${props.data.id}`">
       <div class="info">
-        <h3>{{ props.title }}</h3>
+        <h3>{{ props.data.title }}</h3>
         <div class="b-info">
-          <p class="type">{{ props.type }}</p>
-          <p class="lang">{{ props.lang }}</p>
+          <p class="type">{{ props.data.type }}</p>
+          <p class="lang">{{ props.data.lang }}</p>
         </div>
       </div>
     </NuxtLink>
@@ -29,19 +29,17 @@ const props = defineProps<Anime>()
   background-size: cover;
   background-position: center;
   margin: 0;
+  will-change: transform;
   transition:
-    box-shadow 0.3s ease,
+    box-shadow 0.2s ease,
     transform 0.2s ease;
 }
 
 .card:hover {
   box-shadow:
-    rgba(0, 0, 0, 0.09) 0px 2px 1px,
-    rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px,
-    rgba(0, 0, 0, 0.09) 0px 10px 8px,
-    rgba(0, 0, 0, 0.09) 0px 12px 16px;
-  transform: translateY(-10px);
+    rgba(0, 0, 0, 0.1) 0px 4px 8px,
+    rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  transform: scale(0.97);
 }
 
 .card a {

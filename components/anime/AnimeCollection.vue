@@ -11,15 +11,7 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
     <h1>{{ name }}</h1>
 
     <div class="anime-card-wrapper">
-      <AnimeCard
-        v-for="anime in props.data"
-        :id="anime.id"
-        :key="String(anime.id)"
-        :title="anime.title"
-        :thumbnail="anime.thumbnail"
-        :lang="anime.lang!"
-        :type="anime.type"
-      />
+      <AnimeCard v-for="(anime, index) in props.data" :key="index" :data="anime" />
     </div>
 
     <NuxtLink :to="`/${props.name}`">
@@ -31,18 +23,7 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
     <h1>{{ name }}</h1>
 
     <div class="anime-card-wrapper-small">
-      <AnimeCardSmall
-        v-for="anime in props.data"
-        :id="anime.id"
-        :key="String(anime.id)"
-        :title="anime.title"
-        :type="anime.type"
-        :thumbnail="anime.thumbnail"
-        :release-year="anime.releaseYear!"
-        :tags="anime.tags!"
-        :number-of-episodes="anime.numberOfEpisodes!"
-        :duration="anime.duration!"
-      />
+      <AnimeCardSmall v-for="(anime, index) in props.data" :key="index" :data="anime" />
     </div>
 
     <AnimeButton />
