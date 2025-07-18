@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Anime } from '~/types'
-
 const route = useRoute()
 
 const { data: anime } = await useFetch<{ success: boolean; data: Anime }>(`/api/anime/${route.params.id}`)

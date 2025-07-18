@@ -52,7 +52,7 @@ const { currentGroup, currentEpisode, groups, range, animeID, episodeData, episo
 .episode-link,
 .episodes-container {
   background-color: #262626;
-  border-radius: 5px;
+  border-radius: 3px;
   justify-items: center;
   align-content: center;
 }
@@ -88,7 +88,7 @@ const { currentGroup, currentEpisode, groups, range, animeID, episodeData, episo
 .groups span,
 .episodes a {
   background-color: #3a3a3a;
-  border-radius: 5px;
+  border-radius: 3px;
   text-align: center;
   padding: 10px;
 }

@@ -1,6 +1,5 @@
 import { defineMongooseModel } from '#nuxt/mongoose'
 import { Types } from 'mongoose'
-import type { IAnime } from '~/types'
 
 export const AnimeSchema = defineMongooseModel<IAnime>({
   name: 'Anime',

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Anime } from '~/types'
-
 const props = defineProps<{ data: Anime }>()
 
 const animeInfo = {
@@ -63,7 +61,7 @@ const animeInfo = {
 .info-bottom {
   background-color: #262626;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   line-height: normal;
   color: #ffffff;
 }
@@ -76,7 +74,7 @@ const animeInfo = {
 .thumbnail img {
   width: 180px;
   height: 270px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .info-top,

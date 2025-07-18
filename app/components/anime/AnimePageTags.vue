@@ -19,7 +19,7 @@ const props = defineProps<{ tags: string[] | undefined }>()
   width: 220px;
   height: 140px;
   background-color: #262626;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 20px;
   line-height: normal;
   margin-right: 10px;

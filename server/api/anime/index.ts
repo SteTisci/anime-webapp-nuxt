@@ -1,6 +1,3 @@
-import type { Query } from '~/types'
-import { mapIAnimeArrayToAnimeArray } from '~/server/utils/mapper'
-
 export default defineEventHandler(async event => {
   const rawQuery = getQuery(event)
 

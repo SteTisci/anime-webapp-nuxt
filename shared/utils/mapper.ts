@@ -1,4 +1,3 @@
-import type { Anime, IAnime, IEpisode, Episode } from '~/types'
 import type { Types } from 'mongoose'
 
 export function mapIAnimeToAnime(anime: IAnime): Anime {

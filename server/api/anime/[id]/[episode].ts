@@ -1,5 +1,3 @@
-import { mapIEpisodeToEpisode } from '~/server/utils/mapper'
-
 export default defineEventHandler(async event => {
   const anime = await AnimeSchema.findById(event.context.params?.id).select('paramUri episodes')
 

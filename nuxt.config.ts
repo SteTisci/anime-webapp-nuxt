@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     enabled: process.env.NODE_ENV === 'development',
   },
 
-  modules: ['@nuxt/eslint', 'nuxt-mongoose'],
+  modules: ['@nuxt/eslint', 'nuxt-mongoose', '@nuxt/fonts'],
+
   runtimeConfig: {
     REQ_SLUG_VIDEO: process.env.REQ_SLUG_VIDEO,
   },

@@ -1,5 +1,3 @@
-import type { Episode } from '~/types'
-
 export function useEpisodes(numberOfEpisodes: number) {
   const route = useRoute()
   const animeID = computed(() => route.params.id)
@@ -16,7 +14,9 @@ export function useEpisodes(numberOfEpisodes: number) {
 
   const range = computed(() => {
     const group = groups.value[currentGroup.value]
-    return Array.from({ length: group.end - group.start + 1 }, (_, i) => group.start + i)
+    if (group) {
+      return Array.from({ length: group.end - group.start + 1 }, (_, i) => group.start + i)
+    }
   })
 
   const { data: episodeData, pending: episodePending } = useFetch<{ success: boolean; data: Episode }>(

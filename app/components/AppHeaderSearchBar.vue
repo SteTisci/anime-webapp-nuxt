@@ -23,14 +23,12 @@
   margin: 4px 0 4px 5px;
   color: #ffffff;
   background-color: transparent;
-  font-family: jersey;
   line-height: normal;
   font-size: 1rem;
   width: 225px;
 }
 
 .search-bar input::placeholder {
-  font-family: jersey;
   font-size: 1rem;
   color: #5c5c5c;
 }

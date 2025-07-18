@@ -22,7 +22,6 @@ button {
   color: white;
   outline: none;
   border: none;
-  font-family: jersey;
   font-size: 1rem;
   transition:
     background-color 0.3s ease,

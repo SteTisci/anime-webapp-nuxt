@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Anime } from '~/types'
-
 const props = defineProps<{ data: Anime }>()
 </script>
 

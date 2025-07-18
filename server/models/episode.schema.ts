@@ -1,5 +1,4 @@
 import { defineMongooseModel } from '#nuxt/mongoose'
-import type { IEpisode } from '~/types'
 
 export const EpisodeSchema = defineMongooseModel<IEpisode>({
   name: 'Episode',

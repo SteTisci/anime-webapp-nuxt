@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import type { Anime } from '~/types'
-
-const props = defineProps<{ name: string; card: 'normal' | 'small'; data: Anime[] }>()
+const props = defineProps<{ name: string; size: 'large' | 'medium' | 'small'; data: Anime[] }>()
 
 const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slice(1))
 </script>
 
 <template>
-  <div v-if="props.card === 'normal'" class="anime-container">
+  <div v-if="props.size === 'large'" class="anime-container">
     <h1>{{ name }}</h1>
 
     <div class="anime-card-wrapper">
-      <AnimeCard v-for="(anime, index) in props.data" :key="index" :data="anime" />
+      <AnimeCardLg v-for="(anime, index) in props.data" :key="index" :data="anime" />
     </div>
 
     <NuxtLink :to="`/${props.name}`">
@@ -19,11 +17,11 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
     </NuxtLink>
   </div>
 
-  <div v-if="props.card === 'small'" class="anime-container-small">
+  <div v-if="props.size === 'medium'" class="anime-container-medium">
     <h1>{{ name }}</h1>
 
-    <div class="anime-card-wrapper-small">
-      <AnimeCardSmall v-for="(anime, index) in props.data" :key="index" :data="anime" />
+    <div class="anime-card-wrapper-medium">
+      <AnimeCardMd v-for="(anime, index) in props.data" :key="index" :data="anime" />
     </div>
 
     <AnimeButton />
@@ -32,10 +30,10 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
 
 <style scoped>
 .anime-container,
-.anime-container-small {
-  background-color: #2c2c2c;
+.anime-container-medium {
+  background-color: #262626;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow:
     rgba(0, 0, 0, 0.16) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -47,7 +45,7 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
 }
 
 .anime-container h1,
-.anime-container-small h1 {
+.anime-container-medium h1 {
   color: white;
   font-size: 2.4rem;
   padding-bottom: 20px;
@@ -59,7 +57,7 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
   height: 60px;
 }
 
-.anime-container-small h1 {
+.anime-container-medium h1 {
   height: 58px;
 }
 
@@ -69,7 +67,7 @@ const name = computed(() => props.name.charAt(0).toUpperCase() + props.name.slic
   gap: 20px 10px;
 }
 
-.anime-card-wrapper-small {
+.anime-card-wrapper-medium {
   display: flex;
   flex-direction: column;
   gap: 20px;
